@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import check from './check'
+import searchId from './searchId';
 
-export default combineReducers({ check});
+export default combineReducers({ searchId});
 
