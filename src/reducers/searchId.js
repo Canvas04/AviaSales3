@@ -1,4 +1,4 @@
-import {FETCH_REQUEST_ID,FETCH_RECEIVE_ID,FETCH_ERROR_ID, FETCH_RECEIVE_TICKETS} from '../constants';
+import {FETCH_REQUEST_ID,FETCH_RECEIVE_ID,FETCH_ERROR_ID} from '../constants';
 
 const initialState = {
   isFetching: false,
@@ -7,6 +7,7 @@ const initialState = {
 };
 
 const searchId = (state = initialState, action) => {
+ 
   switch (action.type) {
     case FETCH_REQUEST_ID:
       return { ...state, isFetching: true };
