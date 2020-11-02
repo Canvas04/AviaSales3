@@ -31,12 +31,17 @@ export function loadTickets() {
     const callId = await fetch(SEARCH_URL);
     const searchId = await callId.json();
     dispatch(requestTickets());
-    const callTickets = await fetch(`${TICKETS_URL}=${searchId.searchId}`);
+
+    
     try {
-      const tickets = await callTickets.json();
+        const callTickets = await fetch(`${TICKETS_URL}=${searchId.searchId}`);
+      const {tickets} = await callTickets.json();
       dispatch(receiveTickets(tickets));
+      if(tickets.length === 0) {
+          throw new Error('Try to reload the page')
+      }
     } catch (error) {
-      dispatch(errorLoadTickets());
+      dispatch(errorLoadTickets(error));
     }
   };
 }
