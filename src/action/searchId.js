@@ -35,7 +35,6 @@ return fetch(SEARCH_URL)
     }
 })
 .then(json => {
-loadTickets(json)
     return dispatch(receiveId(json))}
     )
 .catch(e => dispatch(errorId(e)))

@@ -3,6 +3,7 @@ import {
   FETCH_RECEIVE_TICKETS,
   FETCH_FAILURE_TICKETS,
   TICKETS_URL,
+  SEARCH_URL,
 } from "../constants";
 
 const requestTickets = () => {
@@ -25,21 +26,17 @@ const errorLoadTickets = (error) => {
   };
 };
 
-export function loadTickets(id) {
-  console.log(id);
-  return (dispatch) => {
+export function loadTickets() {
+  return async (dispatch) => {
+    const callId = await fetch(SEARCH_URL);
+    const searchId = await callId.json();
     dispatch(requestTickets());
-    if (id.searchId) {
-      return fetch(`${TICKETS_URL}=${id.searchId}`)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Something went wrong");
-          }
-        })
-        .then((json) => dispatch(receiveTickets(json)))
-        .catch((e) => dispatch(errorLoadTickets(e)));
+    const callTickets = await fetch(`${TICKETS_URL}=${searchId.searchId}`);
+    try {
+      const tickets = await callTickets.json();
+      dispatch(receiveTickets(tickets));
+    } catch (error) {
+      dispatch(errorLoadTickets());
     }
   };
 }
