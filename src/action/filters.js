@@ -12,6 +12,7 @@ export const speedTickets = (payload) => {
   };
 };
 
+
 export const cheapTickets = (payload) => {
   return { type: CHEAPEST, payload };
 };
