@@ -1,15 +1,10 @@
 import { CHEAPEST, FASTEST } from "../constants";
-const getSpeedTickets = (payload) => {
-  return {
-    type: FASTEST,
-    payload,
-  };
-};
 
 export const speedTickets = (payload) => {
-  return (dispatch) => {
-    dispatch(getSpeedTickets(payload));
-  };
+    return {
+        type: FASTEST,
+        payload,
+      };
 };
 
 
