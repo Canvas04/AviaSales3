@@ -1,3 +1,5 @@
 import { PRESS_CHECK } from "../constants";
 
-export const pressCheck = (id) => ({type:PRESS_CHECK,id})
+ const pressCheck = (id) => ({type:PRESS_CHECK,id})
+
+ export {pressCheck};

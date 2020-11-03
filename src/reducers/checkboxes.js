@@ -31,7 +31,7 @@ const initialState = {
     selectAll: false,
   };
 
-  export const checkboxes = (state=initialState,action) => {
+  const checkboxes = (state=initialState,action) => {
         switch(action.type) {
             case PRESS_CHECK:
 
@@ -90,3 +90,4 @@ let items = [...state.items];
                 return state;
         }
   }
+  export {checkboxes};
