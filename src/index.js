@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware, compose } from "redux";
 import reduxThunk from "redux-thunk";
 import App from "./containers/app";
-import ErrorBoundary from "./errorBoundary/ErrorBoundary.js/ErrorBoundary";
 import rootReducer from "./reducers/index";
 
 const loggerMiddleWare = (store) => (next) => (action) => {
