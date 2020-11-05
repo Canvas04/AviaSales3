@@ -33,38 +33,38 @@ const filterOnStops = (arr, num) => {
   });
 
   if (num >= 0) {
-    console.log(arrWithStops.filter((el) => {
-      if (el.stops === num) {
-        return el;
-      }
-    }));
-    return arrWithStops.filter((el) => {
+    const needTickets = arrWithStops.filter((el) => {
       if (el.stops === num) {
         return el;
       }
     });
-  }else {
+    if (needTickets.length === 0) {
+      return "Подходящих билетов нет";
+    } else {
+      return needTickets;
+    }
+  
+  } else {
     return arr;
   }
-  
 };
 
 export const filterOnLabel = (arr, label) => {
   switch (label) {
     case "Все":
-     return filterOnStops(arr);
+      return filterOnStops(arr);
 
     case "Без пересадок":
-    return   filterOnStops(arr, 0);
+      return filterOnStops(arr, 0);
 
     case "1 пересадка":
-    return   filterOnStops(arr, 1);
+      return filterOnStops(arr, 1);
 
     case "2 пересадки":
-     return  filterOnStops(arr, 2);
+      return filterOnStops(arr, 2);
 
     case "3 пересадки":
-     return filterOnStops(arr, 3);
+      return filterOnStops(arr, 3);
 
     default:
       return arr;
