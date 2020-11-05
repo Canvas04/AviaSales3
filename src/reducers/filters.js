@@ -1,5 +1,5 @@
-import { CHEAPEST, FASTEST } from "../constants";
-import { filterOnLength, filterOnPrice, filterOnSpeed } from "../secondaryFunc";
+import { CHEAPEST, FASTEST, PRESS_CHECK } from "../constants";
+import { filterOnLabel, filterOnLength, filterOnPrice, filterOnSpeed } from "../secondaryFunc";
 
 export const getSpeedTickets = (state = null, action) => {
   switch (action.type) {
@@ -18,3 +18,12 @@ export const getCheapTickets = (state = null, action) => {
       return state;
   }
 };
+
+export const getTicketsOnCheck = (state=null,action) => {
+  switch(action.type) {
+    case PRESS_CHECK:
+return filterOnLabel(action.payload,action.label);
+    default:
+      return state;
+  }
+}
