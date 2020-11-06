@@ -1,0 +1,11 @@
+.aside {
+    position: relative;
+    right: 200px;
+    bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+}
+.asideHeader {
+    font-weight: 700;
+    font-size: 1em;
+}
