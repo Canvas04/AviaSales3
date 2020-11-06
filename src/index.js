@@ -23,9 +23,6 @@ const store = createStore(
 render(
   <Provider store={store}>
   <App />
-    
   </Provider>,
   document.getElementById("root")
 );
-
-//Фильтрация готова , надо подумать как они работают вместе с фильтрацией по цене и по стоимости

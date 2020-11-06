@@ -5,6 +5,7 @@ import TabPanel from "../tab-panel/tab-panel";
 import classes from "./filter.module.scss";
 import { pressCheck } from "../../action/checkboxes";
 import { getCheck, getCheckLabel, getCheckId } from "./extra";
+import './filter.scss';
 
 const { filter, header, aside, search } = classes;
 
