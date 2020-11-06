@@ -17,6 +17,7 @@ export const getCheapTickets = (state = null, action) => {
     default:
       return state;
   }
+  
 };
 
 export const getTicketsOnCheck = (state=null,action) => {
