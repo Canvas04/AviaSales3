@@ -22,7 +22,7 @@ export const getCheapTickets = (state = null, action) => {
 export const getTicketsOnCheck = (state=null,action) => {
   switch(action.type) {
     case PRESS_CHECK:
-return filterOnLabel(action.payload,action.label);
+return filterOnLength(filterOnLabel(action.payload,action.label));
     default:
       return state;
   }
